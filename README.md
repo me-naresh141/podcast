@@ -8,6 +8,20 @@
 * Select **subscription** plan
 * you can select **artist**.
 
+# Dependencies
+* **bcrypy**
+* **connect-flash**
+* **connect-mongo**
+* **cookie-parser**
+* **debug**
+* **dotenv**
+* **ejs**
+* **express**
+* **express-session**
+* **mongoose**
+* **morgan**
+* **multer**
+
 # Technology
 * **node.js**
 * **mongo db**
