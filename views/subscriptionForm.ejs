@@ -1,0 +1,34 @@
+<% include persists/header%>
+    <section class="signup-section">
+        <div class="container height-full    flex justify-around align-center flex-colum-mq height-auto-mq ">
+            <!-- 1 -->
+            <div
+                class="width50  height-full   flex flex-direction-column justify-center width-100mq order1-mq  justify-start-mq">
+                <h1 class="font-2rem font-weight-800">Everthing <strong class="color-orange">Podcasting.</strong>
+                </h1>
+                <h2 class="font-1-5rem margib-tb-p5 font-weight-600">Discover & create new podcasts</h2>
+                <p class="font-1-3rem"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio at mollitia
+                    consequatur dicta ipsa quisquam magni ex quae enim! Ratione magni illo sequiitaque,
+                    nobis est fugiat alias .</p>
+            </div>
+            <!-- form div -->
+            <div class="form-div width-100mq margin-top5rem-mq">
+                <h2 class="text-center font-1-5rem"> Select plane </h2>
+                <form class="flex flex-direction-column " action="/users/updateplane">
+                    <label for="Plane">Select Plane</label>
+                    <select name="plane" id="Plane">
+                        <option value="free">free</option>
+                        <option value="vip">vip</option>
+                        <option value="Primium">Primium</option>
+                    </select>
+
+                    <button type="submit" class="btn-submit bg-color-orange color-white"> Submit</button>
+
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <% include persists/footer%>

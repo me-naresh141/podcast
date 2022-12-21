@@ -1,0 +1,45 @@
+<% include persists/header%>
+    <section class="signup-section">
+        <div class="container height-full flex justify-around align-center flex-colum-mq height-auto-mq ">
+            <div class="width50  height-full flex flex-direction-column justify-center width-100mq order1-mq justify-start-mq">
+                <h1 class="font-2rem font-weight-800">Everthing <strong class="color-orange">Podcasting.</strong> </h1>
+                <h2 class="font-1-5rem margib-tb-p5 font-weight-600">Discover & create new podcasts</h2>
+                <p class="font-1-3rem"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio at mollitia
+                    consequatur dicta ipsa quisquam magni ex quae enim! Ratione magni illo sequiitaque,
+                    nobis est fugiat alias .</p>
+            </div>
+            <!-- form div -->
+            <div class="form-div width-100mq margin-top5rem-mq">
+                <h2 class="text-center font-1-5rem">Sign up for free</h2>
+                <p class="text-center">Already have an account?<a class="color-orange underline"
+                        href="/users/login">Click here to
+                        login</a></p>
+                <form class="flex flex-direction-column " action="/users/register" method="post"
+                    enctype="multipart/form-data">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="E-mail Address" required>
+                    <!-- password -->
+                    <div class="flex align-center">
+                        <input class="width90" type="password" name="password" id="password-input"
+                            placeholder="password(min 5 characters)" required>
+                        <span class="material-symbols-outlined visivilty">
+                            visibility_off
+                        </span>
+                    </div>
+                    <label class="margin-rl-1rem" for="#">Profile picture</label>
+                    <input type="file" name="profileImage" placeholder="profileImage" required>
+                    <button type="submit" class="btn-submit bg-color-orange color-white"> Start my podcast</button>
+                    <strong class="text-center font-1-5rem margib-tb-p5">or</strong>
+                    <button class="btn-submit flex">
+                        <a class="color-gray" href="#"> Continue
+                            with Google</a>
+                    </button>
+                    <p class="text-center">By signing up, you agree to the Terms & Conditions and the Privacy Policy.
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <% include persists/footer%>

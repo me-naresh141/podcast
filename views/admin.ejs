@@ -1,0 +1,108 @@
+<% include persists/header%>
+    <section class="signup-section">
+        <div class="container height-full  flex justify-around align-center flex-colum-mq height-auto-mq ">
+            <!-- 1 -->
+            <div class="width50  height-full order1-mq width-100mq ">
+                <!-- filter by category -->
+                <div class="width100 ">
+                    <label for="">filter accroding plan</label>
+                    <form action="/podcast/filter">
+                        <select class="width70" name="plane" id="Plane">
+                            <option value="">All</option>
+                            <option value="free">free</option>
+                            <option value="vip">vip</option>
+                            <option value="Primium">Primium</option>
+                        </select>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
+                </div>
+                <!-- all podcast -->
+
+                <div class=" overflow-scroll scroll-none   flex ">
+                    <div class="width100 height-43rem-max height-auto-mq">
+                        <!--podcast -->
+                        <div class="width100 gap2   flex justify-between flex-wrap-yes height-full ">
+                            <%allpodcast.reverse().forEach((pod)=>{%>
+                                <!-- author detail -->
+                                <div class="pod-div pod-div2 margin-bottom3 width-40mq">
+                                    <figure>
+                                        <img src="/images/<%=pod.poster%>" alt="">
+                                    </figure>
+                                    <div class="play-div">
+                                        <ul class=" color-white play-btn">
+                                            <li class="playli">
+
+                                                <span class="material-symbols-outlined play-pause">
+                                                    play_circle
+                                                </span>
+                                            </li>
+                                            <audio src="/images/<%=pod.audio%>"></audio>
+                                            <li class="pauseli display-none">
+                                                <span class="material-symbols-outlined play-pause">
+                                                    pause_circle
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- title name -->
+                                    <div class="text-center ">
+                                        <h1 class="font-weight-600 font-size-13px  text-captilize">
+                                            <%=pod.title.slice(0,17) +'...'%>
+                                        </h1>
+                                        <h3 class="font-size-10px">
+                                            <%=pod.artist.slice(0,17) +'...'%>
+                                        </h3>
+                                        <p class="color-white font-size-10px">
+                                            <%=pod.plane +'-song'%>
+                                        </p>
+                                    </div>
+                                    <!-- edit delete -->
+                                    <div class="flex justify-between">
+                                        <button class="btn btn-primary"><a href="/podcast/<%=pod._id%>/edit"><i
+                                                    class="fa-solid fa-pen-to-square"></i> </a></button>
+                                        <button class="btn btn-primary"><a href="/podcast/<%=pod._id%>/delete"><i
+                                                    class="fa-solid fa-trash"></i></a></button>
+                                    </div>
+                                </div>
+                                <%})%>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- audio play  -->
+                <div class="margib-tb-p5">
+                    <audio class="audioplay width100" controls src=""></audio>
+                </div>
+
+            </div>
+            <!-- form div add podcast -->
+            <div class="form-div width-100mq margin-top5rem-mq">
+                <h2 class="text-center font-1-5rem">Add Podcast </h2>
+
+                <form class="flex flex-direction-column " action="/users/podcast" enctype="multipart/form-data"
+                    method="post">
+                    <label for="Plane">title</label>
+                    <input type="text" name="title" placeholder="Title">
+                    <label for="Plane">Artist</label>
+                    <input type="text" name="artist" placeholder="artist">
+                    <label for="Plane">Select Plane</label>
+                    <select name="plane" id="Plane">
+                        <option value="free">free</option>
+                        <option value="vip">vip</option>
+                        <option value="Primium">Primium</option>
+                    </select>
+                    <label for="">Poster image</label>
+                    <input type="file" name="poster" id="" placeholder="image">
+
+                    <label for=""> Select Audio</label>
+                    <input type="file" name="audio" id="" placeholder="audio">
+
+                    <button type="submit" class="btn-submit bg-color-orange color-white">Add Podcast</button>
+
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <% include persists/footer%>

@@ -1,0 +1,88 @@
+<%include persists/header%>
+  <section class="main-section">
+    <div class="container  height-full">
+
+    </div>
+  </section>
+  <section class=" bg-black  flex flex-colum-mq ">
+    <!-- tag -->
+    <div class="">
+      <div class="width10 height-4rem pading2 margin-top-5 margin-top-mq ">
+        <h1 class="color-white filter-icon cursur  ">Artist: <i class="fa-solid fa-magnifying-glass"></i></h1>
+      </div>
+      <div class="tag-div margin-top-mq">
+        <form class="flex tag-form   flex-direction-column  width100 " action="/podcast/artist">
+          <label class="color-white" for="Plane">Select artist</label>
+          <select class="bg-color-white color-gray color-white margin-rl-1rem margib-tb-p5 margin-top-mq  "
+            name="artist" id="artist">
+            <option value="">all</option>
+            <%artist.forEach((singer)=>{%>
+              <option value="<%=singer%>">
+                <%=singer%>
+              </option>
+              <%})%>
+          </select>
+
+          <button type="submit" class="btn btn-primary margin-rl-1rem   color-white"> Submit</button>
+        </form>
+      </div>
+    </div>
+    <!--  -->
+
+    <div class="container   overflow-scroll scroll-none height-full flex ">
+      <div class="width90 width-100mq">
+        <h1 class="text-center text-captilize color-white font-2rem margin-bottom3 font-size-1rem-mq">listen the best
+          podcast on the
+          internet</h1>
+
+        <!--podcast -->
+        <div class="width100    gap flex justify-between flex-wrap-yes">
+          <%podcasts.reverse().forEach((pod)=>{%>
+            <!-- author detail -->
+            <div class="pod-div margin-bottom3 width-40mq">
+              <figure>
+                <img src="/images/<%=pod.poster%>" alt="">
+              </figure>
+              <div class="play-div">
+                <ul class=" color-white play-btn">
+                  <li class="playli">
+                    <!-- <i class="fa-sharp fa-solid fa-circle-play"></i> -->
+                    <span class="material-symbols-outlined play-pause">
+                      play_circle
+                    </span>
+                  </li>
+                  <audio src="/images/<%=pod.audio%>"></audio>
+                  <li class="pauseli display-none">
+                    <span class="material-symbols-outlined play-pause">
+                      pause_circle
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <!-- title name -->
+              <div class="text-center margib-tb-p5">
+                <h1 class="font-weight-600 font-size-13px  text-captilize">
+                  <%=pod.title.slice(0,30) +'...'%>
+                </h1>
+                <h3 class="font-size-10px">
+                  <%=pod.artist%>
+                </h3>
+                <p class="color-white font-size-10px">
+                  <%=pod.plane +'-song'%>
+                </p>
+              </div>
+            </div>
+            <%})%>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 3 -->
+  <section class="bg-black margin-top-5">
+    <div class=" position-fixed bottom bg-color-white">
+      <audio class="audioplay width100 " controls src=""></audio>
+    </div>
+  </section>
+
+  <%include persists/footer%>
