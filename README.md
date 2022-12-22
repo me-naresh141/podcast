@@ -28,7 +28,7 @@
 * **express.js**
 * **ejs.js**
 * **javascript**
-* **css.js**
+* **css**
 
 # Details
 ## logged User
